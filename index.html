@@ -1,61 +1,1533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giulia Suzzi | Academic Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Giulia Suzzi | Medicine · Neuroscience · Humanities</title>
+
+<meta name="description" content="Academic portfolio of Giulia Suzzi — medical student and researcher working across medicine, neuroscience, ophthalmology, psychiatry and the humanities.">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root {
+    --ink: #283238;
+    --muted: #68757a;
+
+    --teal: #216d70;
+    --teal-dark: #174f52;
+
+    --lilac: #b8a6d9;
+    --mauve: #9d7898;
+    --violet: #7662a8;
+
+    --ice: #dceff2;
+    --sage: #dce5d8;
+    --sand: #eee3d2;
+
+    --cream: #fbfaf7;
+    --white: #ffffff;
+
+    --border: rgba(40,50,56,0.10);
+
+    --shadow:
+        0 18px 50px rgba(44, 48, 55, 0.08);
+
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--lilac);
+    color: white;
+}
+
+/* ---------------- NAVIGATION ---------------- */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    padding: 18px 6vw;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(251,250,247,0.78);
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid rgba(40,50,56,0.06);
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+    color: var(--teal-dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.nav-links a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 1px;
+    background: var(--violet);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--teal);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 7vw 100px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 820px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--teal);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    margin-bottom: 24px;
+
+    animation: fadeUp 1s ease both;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+
+    color: var(--ink);
+
+    animation: fadeUp 1s 0.1s ease both;
+}
+
+.hero h1 span {
+    color: var(--violet);
+}
+
+.hero-subtitle {
+    margin-top: 30px;
+    max-width: 680px;
+
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--muted);
+
+    animation: fadeUp 1s 0.25s ease both;
+}
+
+.hero-tags {
+    margin-top: 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    animation: fadeUp 1s 0.4s ease both;
+}
+
+.tag {
+    padding: 8px 14px;
+    border-radius: 100px;
+
+    background: white;
+    border: 1px solid var(--border);
+
+    font-size: 0.8rem;
+    color: var(--teal-dark);
+
+    box-shadow: 0 5px 20px rgba(40,50,56,0.04);
+}
+
+/* floating decorative circles */
+
+.orbit {
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    right: -130px;
+    top: 130px;
+
+    border: 1px solid rgba(118,98,168,0.16);
+    border-radius: 50%;
+
+    animation: rotate 24s linear infinite;
+}
+
+.orbit::before,
+.orbit::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+}
+
+.orbit::before {
+    width: 24px;
+    height: 24px;
+
+    background: var(--lilac);
+
+    top: 38px;
+    left: 110px;
+
+    box-shadow: 0 0 0 12px rgba(184,166,217,0.16);
+}
+
+.orbit::after {
+    width: 15px;
+    height: 15px;
+
+    background: var(--teal);
+
+    right: 55px;
+    bottom: 90px;
+}
+
+.blob {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+
+    right: 70px;
+    bottom: -100px;
+
+    background: var(--ice);
+
+    border-radius: 48% 52% 65% 35%;
+
+    filter: blur(1px);
+
+    animation: float 8s ease-in-out infinite;
+}
+
+/* ---------------- SECTIONS ---------------- */
+
+section {
+    padding: 110px 7vw;
+}
+
+.section-label {
+    color: var(--mauve);
+
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+
+    font-size: 0.73rem;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+
+    font-weight: 500;
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.section-intro {
+    max-width: 700px;
+    color: var(--muted);
+    margin-bottom: 55px;
+}
+
+/* ---------------- RESEARCH ---------------- */
+
+.research {
+    background: var(--white);
+}
+
+.research-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.research-card {
+    padding: 34px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: var(--cream);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.research-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow);
+
+    border-color: rgba(118,98,168,0.25);
+}
+
+.card-number {
+    font-size: 0.75rem;
+    color: var(--mauve);
+
+    margin-bottom: 18px;
+}
+
+.research-card h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 1.65rem;
+
+    margin-bottom: 13px;
+}
+
+.research-card p {
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+/* ---------------- NRBF FEATURE ---------------- */
+
+.feature {
+    margin-top: 35px;
+
+    padding: 45px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--ice),
+            #f5f0f8 55%,
+            var(--sage)
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+.feature::after {
+    content: "NRBF";
+
+    position: absolute;
+
+    right: 30px;
+    bottom: -25px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 8rem;
+
+    color: rgba(118,98,168,0.07);
+}
+
+.feature h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.1rem;
+
+    max-width: 750px;
+
+    margin-bottom: 15px;
+}
+
+.feature p {
+    max-width: 760px;
+    color: var(--muted);
+}
+
+.feature-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.mini-tag {
+    padding: 7px 12px;
+
+    border-radius: 100px;
+
+    background: rgba(255,255,255,0.7);
+
+    font-size: 0.78rem;
+
+    color: var(--teal-dark);
+}
+
+/* ---------------- ACCORDIONS ---------------- */
+
+details {
+    border-top: 1px solid var(--border);
+}
+
+details:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+summary {
+    list-style: none;
+    cursor: pointer;
+
+    padding: 25px 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: var(--ink);
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+
+    font-size: 1.5rem;
+    font-weight: 300;
+
+    color: var(--violet);
+
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.details-content {
+    padding: 0 40px 30px 5px;
+
+    color: var(--muted);
+
+    max-width: 850px;
+
+    animation: reveal 0.4s ease;
+}
+
+/* ---------------- FRAMEWORK ---------------- */
+
+.framework {
+    background: #f7f5fa;
+}
+
+.pathways {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.pathway {
+    padding: 25px;
+
+    min-height: 190px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.pathway:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.pathway span {
+    display: block;
+
+    font-size: 0.72rem;
+    color: var(--mauve);
+
+    margin-bottom: 12px;
+}
+
+.pathway h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+
+    margin-bottom: 10px;
+}
+
+.pathway p {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* ---------------- PUBLICATIONS ---------------- */
+
+.publications {
+    background: white;
+}
+
+.pub-list {
+    max-width: 950px;
+}
+
+.pub {
+    padding: 30px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 30px;
+}
+
+.pub-year {
+    color: var(--violet);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.pub h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+
+    margin-bottom: 8px;
+}
+
+.pub p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.status {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 5px 10px;
+
+    border-radius: 100px;
+
+    background: var(--sage);
+
+    font-size: 0.7rem;
+
+    color: var(--teal-dark);
+}
+
+/* ---------------- HUMANITIES ---------------- */
+
+.humanities {
+    background:
+        linear-gradient(
+            135deg,
+            #f5f0e8,
+            #f6f2f8
+        );
+}
+
+.humanities-inner {
+    max-width: 850px;
+}
+
+/* ---------------- CV ---------------- */
+
+.cv {
+    background: var(--white);
+}
+
+.cv-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 45px;
+}
+
+.cv-box {
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background: var(--cream);
+
+    border: 1px solid var(--border);
+}
+
+.cv-box h4 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 1.25rem;
+
+    margin-bottom: 10px;
+}
+
+.cv-box p {
+    font-size: 0.86rem;
+    color: var(--muted);
+}
+
+/* ---------------- CONTACT ---------------- */
+
+.contact {
+    background: var(--teal-dark);
+    color: white;
+
+    text-align: center;
+}
+
+.contact .section-label {
+    color: var(--lilac);
+}
+
+.contact .section-title {
+    color: white;
+}
+
+.contact p {
+    color: rgba(255,255,255,0.72);
+
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+}
+
+.contact-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+.contact-link {
+    padding: 11px 17px;
+
+    border-radius: 100px;
+
+    background: rgba(255,255,255,0.09);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.contact-link:hover {
+    background: rgba(255,255,255,0.17);
+    transform: translateY(-3px);
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer {
+    padding: 25px 7vw;
+
+    background: #143f42;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 0.75rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 130px;
+    }
+
+    .orbit {
+        opacity: 0.4;
+
+        width: 380px;
+        height: 380px;
+
+        right: -170px;
+    }
+
+    .research-grid,
+    .pathways,
+    .cv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pub {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    section {
+        padding: 80px 6vw;
+    }
+
+    .feature {
+        padding: 30px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-    <header>
-        <h1>Giulia Suzzi</h1>
-        <p>Medical student &amp; researcher</p>
-    </header>
+<!-- NAVIGATION -->
 
-    <main>
+<nav>
 
-        <section>
-            <h2>Research</h2>
+    <a href="#home" class="logo">
+        Giulia Suzzi
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#research">Research</a>
+
+        <a href="#publications">Publications</a>
+
+        <a href="#humanities">Humanities</a>
+
+        <a href="#cv">CV</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Medicine · Neuroscience · Humanities
+        </div>
+
+        <h1>
+            Giulia<br>
+            <span>Suzzi</span>
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Medical student and researcher exploring questions
+            at the intersection of medicine, neuroscience,
+            ophthalmology, psychiatry, and the humanities.
+
+        </p>
+
+        <div class="hero-tags">
+
+            <span class="tag">Ophthalmology</span>
+
+            <span class="tag">Neuroscience</span>
+
+            <span class="tag">Psychiatry</span>
+
+            <span class="tag">NSSI &amp; self-harm</span>
+
+            <span class="tag">Medical humanities</span>
+
+        </div>
+
+    </div>
+
+    <div class="orbit"></div>
+
+    <div class="blob"></div>
+
+</header>
+
+
+<!-- RESEARCH -->
+
+<section class="research" id="research">
+
+    <div class="section-label">
+        Research
+    </div>
+
+    <h2 class="section-title">
+        Questions across disciplines.
+    </h2>
+
+    <p class="section-intro">
+
+        My scientific work is centered on the relationship
+        between biological mechanisms, clinical phenomena,
+        and measurable signals — with particular interests
+        in the retina, brain, psychiatry, and self-harm.
+
+    </p>
+
+
+    <div class="research-grid">
+
+        <article class="research-card">
+
+            <div class="card-number">01 · Ophthalmology</div>
+
+            <h3>
+                Retina &amp; neuroscience
+            </h3>
+
             <p>
-                My research interests include psychiatry, self-harm and NSSI,
-                ophthalmology, neuroscience, and interdisciplinary approaches
-                to medicine.
+                Retinal imaging, oculomics, neuro-ophthalmology,
+                and the possibility of using retinal structure
+                and function to investigate processes occurring
+                within the central nervous system.
             </p>
-        </section>
 
-        <section>
-            <h2>Publications &amp; Preprints</h2>
-            <ul>
-                <li>Scientific publications and manuscripts</li>
-                <li>Preprints and ongoing research</li>
-                <li>Interdisciplinary research</li>
-            </ul>
-        </section>
+        </article>
 
-        <section>
-            <h2>Philosophy &amp; Literature</h2>
+
+        <article class="research-card">
+
+            <div class="card-number">02 · Psychiatry</div>
+
+            <h3>
+                Neuropsychiatric biomarkers
+            </h3>
+
             <p>
-                Interdisciplinary writing, literary analysis, philosophy,
-                and reflections at the intersection of medicine and the humanities.
+                Mechanism-based approaches to psychiatric
+                disorders, with particular attention to the
+                biological pathways that may connect peripheral
+                measurements with brain function.
             </p>
-        </section>
 
-        <section>
-            <h2>CV</h2>
+        </article>
+
+
+        <article class="research-card">
+
+            <div class="card-number">03 · Self-harm</div>
+
+            <h3>
+                NSSI &amp; clinical psychology
+            </h3>
+
             <p>
-                Curriculum vitae and academic background.
+                Research concerning non-suicidal self-injury,
+                self-harm, psychological mechanisms, and the
+                clinical and developmental contexts in which
+                these phenomena occur.
             </p>
-        </section>
 
-        <section>
-            <h2>Contact</h2>
+        </article>
+
+
+        <article class="research-card">
+
+            <div class="card-number">04 · Interdisciplinary</div>
+
+            <h3>
+                Medicine &amp; humanities
+            </h3>
+
             <p>
-                ORCID: 0009-0002-6388-4328
+                Questions that cannot be reduced to a single
+                discipline, bringing together medicine,
+                psychology, philosophy, literature, and
+                theories of human experience.
             </p>
-        </section>
 
-    </main>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- NRBF -->
+
+<section class="framework">
+
+    <div class="section-label">
+        Featured research
+    </div>
+
+    <h2 class="section-title">
+        A framework for the retina.
+    </h2>
+
+    <div class="feature">
+
+        <h3>
+            The Retina as a Window into Neuropsychiatric Disease:
+            A Neuropsychiatric Retinal Biomarker Framework
+        </h3>
+
+        <p>
+
+            A theoretical and narrative synthesis proposing
+            a mechanism-based framework for understanding
+            retinal findings across neuropsychiatric and
+            neurodegenerative conditions.
+
+        </p>
+
+
+        <div class="feature-meta">
+
+            <span class="mini-tag">
+                OCT
+            </span>
+
+            <span class="mini-tag">
+                OCT-A
+            </span>
+
+            <span class="mini-tag">
+                ERG
+            </span>
+
+            <span class="mini-tag">
+                Oculomics
+            </span>
+
+            <span class="mini-tag">
+                Neuropsychiatry
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="pathways">
+
+        <div class="pathway">
+
+            <span>PATHWAY 01</span>
+
+            <h4>
+                Neuroinflammation
+            </h4>
+
+            <p>
+                Inflammatory processes shared by retinal
+                and central nervous system environments.
+            </p>
+
+        </div>
+
+
+        <div class="pathway">
+
+            <span>PATHWAY 02</span>
+
+            <h4>
+                Neuronal integrity
+            </h4>
+
+            <p>
+                Structural and functional changes affecting
+                retinal neuronal populations.
+            </p>
+
+        </div>
+
+
+        <div class="pathway">
+
+            <span>PATHWAY 03</span>
+
+            <h4>
+                Microvascular dysfunction
+            </h4>
+
+            <p>
+                Retinal microvascular alterations considered
+                within a broader neurovascular framework.
+            </p>
+
+        </div>
+
+
+        <div class="pathway">
+
+            <span>PATHWAY 04</span>
+
+            <h4>
+                Neurotransmitter alteration
+            </h4>
+
+            <p>
+                Dopaminergic and serotonergic mechanisms
+                potentially reflected in retinal function.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PUBLICATIONS -->
+
+<section class="publications" id="publications">
+
+    <div class="section-label">
+        Publications &amp; preprints
+    </div>
+
+    <h2 class="section-title">
+        Selected scientific work.
+    </h2>
+
+    <p class="section-intro">
+
+        A living list of manuscripts, preprints, publications,
+        and research projects. Detailed records and links will
+        be added as each work progresses through publication.
+
+    </p>
+
+
+    <div class="pub-list">
+
+        <article class="pub">
+
+            <div class="pub-year">
+                2026
+            </div>
+
+            <div>
+
+                <h3>
+                    The Retina as a Window into Neuropsychiatric Disease:
+                    A Neuropsychiatric Retinal Biomarker Framework
+                </h3>
+
+                <p>
+                    Giulia Suzzi · Stefan Jerotic · Brittany A. Blose
+                </p>
+
+                <span class="status">
+                    Manuscript / preprint
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article class="pub">
+
+            <div class="pub-year">
+                —
+            </div>
+
+            <div>
+
+                <h3>
+                    Psychiatry, self-harm &amp; NSSI
+                </h3>
+
+                <p>
+                    Research and narrative work concerning
+                    non-suicidal self-injury and related clinical
+                    and psychological questions.
+                </p>
+
+                <span class="status">
+                    Research portfolio
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <article class="pub">
+
+            <div class="pub-year">
+                —
+            </div>
+
+            <div>
+
+                <h3>
+                    Further work
+                </h3>
+
+                <p>
+                    Additional manuscripts, collaborations,
+                    reviews, and interdisciplinary projects will
+                    appear here as they become publicly available.
+                </p>
+
+                <span class="status">
+                    In development
+                </span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- INTERACTIVE RESEARCH NOTES -->
+
+<section>
+
+    <div class="section-label">
+        Research notes
+    </div>
+
+    <h2 class="section-title">
+        Explore the ideas.
+    </h2>
+
+    <p class="section-intro">
+
+        These sections are intentionally expandable:
+        the portfolio can grow without becoming visually
+        overwhelming.
+
+    </p>
+
+
+    <div>
+
+        <details>
+
+            <summary>
+                Why the retina?
+            </summary>
+
+            <div class="details-content">
+
+                The retina provides an accessible neural tissue
+                in which structure, microvasculature, and
+                electrophysiological function can be studied
+                non-invasively. The NRBF project examines whether
+                this accessibility can be used to organize evidence
+                concerning neuropsychiatric and neurodegenerative
+                disease.
+
+            </div>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                What is oculomics?
+            </summary>
+
+            <div class="details-content">
+
+                Oculomics refers broadly to the use of ocular
+                measurements as potential biomarkers of systemic,
+                neurological, or neurodegenerative processes.
+                The approach is particularly interesting because
+                modern retinal imaging can provide quantitative
+                measurements in vivo.
+
+            </div>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                What makes a biomarker useful?
+            </summary>
+
+            <div class="details-content">
+
+                A measurable difference is not automatically a
+                clinically useful biomarker. Questions of specificity,
+                reproducibility, longitudinal validity, confounding,
+                standardization, and clinical utility remain central
+                to interpreting retinal biomarkers.
+
+            </div>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- HUMANITIES -->
+
+<section class="humanities" id="humanities">
+
+    <div class="humanities-inner">
+
+        <div class="section-label">
+            Philosophy &amp; literature
+        </div>
+
+        <h2 class="section-title">
+            Medicine is not the whole story.
+        </h2>
+
+        <p class="section-intro">
+
+            Alongside scientific research, I am interested in
+            philosophy, literature, literary analysis, and the
+            ways in which narratives shape our understanding of
+            illness, identity, suffering, relationships, and
+            human behaviour.
+
+        </p>
+
+
+        <details>
+
+            <summary>
+                Literary analysis
+            </summary>
+
+            <div class="details-content">
+
+                Essays and reflections on literary works,
+                characters, narrative structures, psychology,
+                relationships, and representations of human
+                experience.
+
+            </div>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Philosophy
+            </summary>
+
+            <div class="details-content">
+
+                Independent philosophical writing and questions
+                concerning consciousness, identity, ethics,
+                suffering, agency, and the interpretation of
+                human experience.
+
+            </div>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Medicine &amp; the humanities
+            </summary>
+
+            <div class="details-content">
+
+                Intersections between clinical medicine,
+                psychology, narrative, philosophy, and cultural
+                representations of mental and physical illness.
+
+            </div>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- CV -->
+
+<section class="cv" id="cv">
+
+    <div class="section-label">
+        Curriculum vitae
+    </div>
+
+    <h2 class="section-title">
+        Academic profile.
+    </h2>
+
+    <div class="cv-grid">
+
+        <div class="cv-box">
+
+            <h4>
+                Education
+            </h4>
+
+            <p>
+                University of Florence<br>
+                Department of Medicine and Surgery
+            </p>
+
+        </div>
+
+
+        <div class="cv-box">
+
+            <h4>
+                Research
+            </h4>
+
+            <p>
+                Ophthalmology · Neuroscience · Psychiatry
+                · NSSI · Medical humanities
+            </p>
+
+        </div>
+
+
+        <div class="cv-box">
+
+            <h4>
+                ORCID
+            </h4>
+
+            <p>
+                0009-0002-6388-4328
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <details>
+
+        <summary>
+            View academic profile
+        </summary>
+
+        <div class="details-content">
+
+            This section will become the interactive version
+            of the academic CV, including education, research
+            experience, publications, presentations,
+            collaborations, and other academic activities.
+
+        </div>
+
+    </details>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-label">
+        Contact
+    </div>
+
+    <h2 class="section-title">
+        Research, ideas, collaboration.
+    </h2>
+
+    <p>
+
+        For academic correspondence, research collaboration,
+        or questions concerning my work.
+
+    </p>
+
+
+    <div class="contact-links">
+
+        <a
+            class="contact-link"
+            href="mailto:giulia.suzzi@outlook.it">
+            Email
+        </a>
+
+
+        <a
+            class="contact-link"
+            href="https://orcid.org/0009-0002-6388-4328"
+            target="_blank">
+            ORCID
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <span>
+        © 2026 Giulia Suzzi
+    </span>
+
+    <span>
+        Academic portfolio
+    </span>
+
+</footer>
+
 
 </body>
 </html>
