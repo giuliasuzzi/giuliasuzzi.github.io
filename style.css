@@ -39,3 +39,103 @@ footer{padding:45px 0 58px;background:#252338;color:#c8c4d1;border-top:1px solid
 .work-link a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(80,94,118,.25);transition:border-color .2s ease,opacity .2s ease}
 .work-link a:hover{border-color:currentColor;opacity:.75}
 @media(max-width:700px){.section-motif{width:66px;height:66px;flex-basis:66px}.section-heading{gap:1rem}}
+
+
+/* Refined section art direction: distinct, restrained symbols + palette-matched lower band */
+.page-research .page-hero{
+  background:
+    radial-gradient(ellipse at 82% 22%,rgba(121,178,207,.26),transparent 31%),
+    radial-gradient(ellipse at 18% 84%,rgba(183,215,224,.24),transparent 34%),
+    linear-gradient(118deg,#f7f8f5 0%,#e9f3f6 58%,#eef0f5 100%);
+}
+.page-theory .page-hero{
+  background:
+    radial-gradient(ellipse at 83% 24%,rgba(170,145,199,.24),transparent 31%),
+    radial-gradient(ellipse at 17% 82%,rgba(209,198,224,.25),transparent 34%),
+    linear-gradient(118deg,#faf8f4 0%,#f0eaf5 57%,#e8ebf5 100%);
+}
+.page-culture .page-hero{
+  background:
+    radial-gradient(ellipse at 84% 25%,rgba(201,166,190,.24),transparent 31%),
+    radial-gradient(ellipse at 17% 82%,rgba(167,191,211,.22),transparent 35%),
+    linear-gradient(118deg,#faf8f4 0%,#f5ebf0 54%,#e9f0f3 100%);
+}
+
+/* Small line symbols: deliberately simple and different on each page. */
+.section-motif{
+  width:96px;height:96px;flex:0 0 96px;
+  background:none;border:0;box-shadow:none;opacity:.82;transform:none;
+}
+.section-motif::before,.section-motif::after{content:"";position:absolute;background:none}
+/* Research: orbital / biological rings */
+.page-research .section-motif::before{
+  inset:13px 7px 19px 19px;
+  border:1px solid rgba(74,119,145,.42);
+  border-radius:50% 44% 54% 46%;
+  transform:rotate(25deg);
+}
+.page-research .section-motif::after{
+  inset:24px 18px 8px 8px;
+  border:1px solid rgba(102,153,177,.34);
+  border-radius:44% 56% 48% 52%;
+  transform:rotate(-27deg);
+}
+.page-research .section-heading .section-motif{
+  border-left:1px solid rgba(83,124,146,.28);
+  border-radius:50%;
+}
+/* Theory: intersecting conceptual forms */
+.page-theory .section-motif::before{
+  inset:13px 15px;
+  border:1px solid rgba(119,93,145,.40);
+  border-radius:50%;
+  transform:rotate(0deg) scaleX(.55) scaleY(1.04);
+}
+.page-theory .section-motif::after{
+  inset:13px 15px;
+  border:1px solid rgba(151,123,171,.34);
+  border-radius:50%;
+  transform:rotate(60deg) scaleX(.55) scaleY(1.04);
+}
+.page-theory .section-heading .section-motif{
+  border-bottom:1px solid rgba(119,93,145,.25);
+  border-radius:50%;
+}
+/* Culture: restrained botanical gesture */
+.page-culture .section-motif::before{
+  width:1px;height:70px;left:47px;top:13px;
+  background:rgba(119,105,127,.38);
+  transform:rotate(24deg);
+}
+.page-culture .section-motif::after{
+  width:34px;height:22px;left:25px;top:30px;
+  border:1px solid rgba(157,126,150,.38);
+  border-radius:100% 0 100% 0;
+  transform:rotate(-18deg);
+}
+.page-culture .section-heading .section-motif{
+  border-radius:0;
+}
+.page-culture .section-heading .section-motif .unused{display:none}
+
+/* One clean lower color field, echoing the hero palette without extra graphics. */
+.page-palette-band{height:78px;width:100%;}
+.page-research .page-palette-band{
+  background:linear-gradient(105deg,#edf5f5 0%,#dcecf3 48%,#e9e9f1 100%);
+}
+.page-theory .page-palette-band{
+  background:linear-gradient(105deg,#f1ebf5 0%,#e6e8f3 50%,#f3edf3 100%);
+}
+.page-culture .page-palette-band{
+  background:linear-gradient(105deg,#f4e9ef 0%,#eee8f2 48%,#e5eff2 100%);
+}
+
+@media(max-width:700px){
+  .section-motif{width:68px;height:68px;flex-basis:68px}
+  .page-research .section-motif::before{inset:10px 4px 14px 13px}
+  .page-research .section-motif::after{inset:17px 12px 5px 5px}
+  .page-theory .section-motif::before,.page-theory .section-motif::after{inset:9px 10px}
+  .page-culture .section-motif::before{height:50px;left:34px;top:9px}
+  .page-culture .section-motif::after{width:25px;height:16px;left:18px;top:21px}
+  .page-palette-band{height:58px}
+}
