@@ -26,6 +26,12 @@
   --indigo:#3d4a73;
   --mauve-deep:#5d3f75;
 
+  /* deep ground + gold seam — kintsugi accent, used once, in the hero */
+  --void:#151320;
+  --void-2:#1e1a2d;
+  --gold:#c9974f;
+  --gold-soft:rgba(201,151,79,.35);
+
   --shadow:0 18px 46px rgba(36,32,58,.13);
   --shadow-soft:0 8px 22px rgba(36,32,58,.08);
 }
@@ -90,6 +96,20 @@ body.page-leave{animation:pageOut .2s ease both}
     linear-gradient(120deg,#f6f9fa 0%,#eef3f6 55%,#f1edf6 100%);
 }
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:2;padding-bottom:56px}
+
+/* Hero, dark variant — the one bold moment on the page, carrying the gold-seam artwork */
+.hero-dark{
+  min-height:66vh;padding:150px 0 0;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--void) 0%,var(--void-2) 60%,#221b30 100%);
+  color:#ece7f2;
+}
+.hero-crack{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-crack svg{position:absolute;right:-4%;top:-6%;width:58%;max-width:560px;height:auto;opacity:.92}
+.hero-content{position:relative;z-index:2;max-width:720px;padding-bottom:64px}
+.hero-dark .eyebrow{color:var(--gold);font-style:italic;font-family:Georgia,serif;font-size:.8rem}
+.hero-dark h1{color:#f6f2fa}
+.hero-dark .hero-lede{color:#cdc7db}
+.hero-dark .pill{background:rgba(255,255,255,.05);border:1px solid var(--gold-soft);color:#e6e0ee}
 .eyebrow{font-size:.78rem;color:var(--lilac-deep);font-style:italic;font-family:Georgia,serif}
 h1{
   font-family:Georgia,"Times New Roman",serif;font-weight:400;
@@ -103,10 +123,6 @@ h1{
   padding:8px 14px;border:1px solid rgba(77,61,114,.2);border-radius:999px;
   background:rgba(255,255,255,.6);font-size:.82rem;color:var(--muted);
 }
-/* hero motif: abstract retinal / concentric-ring artwork, not decoration for its own sake */
-.hero-visual{display:flex;flex-direction:column;align-items:center;gap:14px}
-.hero-visual svg{width:100%;max-width:340px;height:auto}
-.hero-visual .cap{font-size:.78rem;color:var(--muted);text-align:center;max-width:260px}
 .hero-in{opacity:0;transform:translateY(16px);animation:heroIn .7s ease forwards}
 .hero-in.d1{animation-delay:.05s}
 .hero-in.d2{animation-delay:.16s}
@@ -116,12 +132,10 @@ h1{
 
 /* Positioning strip: flat, fills the gap under the hero, orients a first-time visitor */
 .orient{
-  padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:30px 0;border-top:2px solid var(--gold-soft);border-bottom:1px solid var(--line);
   background:linear-gradient(90deg,var(--teal-soft),var(--azure-soft) 55%,var(--lilac-soft));
 }
-.orient-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.orient-item{font-size:.93rem;color:#40465a}
-.orient-item b{color:var(--ink);font-weight:600}
+.orient-text{font-size:.94rem;color:#40465a;max-width:820px;margin:0}
 
 /* ============ HOME — OVERVIEW (interactive: cards + shadow) ============ */
 .overview{padding:80px 0 96px;background:var(--paper)}
@@ -188,6 +202,10 @@ h1{
 }
 .contact-card div{padding:13px 0;border-bottom:1px solid var(--line)}
 .contact-card div:last-child{border-bottom:0}
+.contact-grid-inner{display:grid;grid-template-columns:1fr 1fr;column-gap:22px}
+.contact-grid-inner div{border-bottom:1px solid var(--line)}
+.contact-grid-inner div:nth-last-child(-n+1){border-bottom:0}
+.contact-grid-inner div:nth-last-child(2){border-bottom:0}
 .contact-card span{display:block;font-size:.68rem;color:var(--indigo);margin-bottom:3px;font-style:italic;font-family:Georgia,serif}
 .contact-card a{color:var(--indigo);text-decoration:none}
 
@@ -273,8 +291,11 @@ a:focus-visible,button:focus-visible,.collab-tile:focus-visible,.modal-close:foc
 @media(max-width:850px){
   .nav-inner{min-height:70px}.nav-links{gap:1px}
   .nav-home,.nav-button{padding:8px 8px;font-size:.66rem}
-  .hero{padding-top:122px}
-  .hero-grid,.area-grid,.collab-grid,.about-layout,.contact-grid,.orient-grid{grid-template-columns:1fr}
+  .hero-dark{padding-top:122px;min-height:58vh}
+  .hero-crack svg{width:80%;max-width:420px;opacity:.55}
+  .hero-grid,.area-grid,.collab-grid,.about-layout,.contact-grid,.contact-grid-inner{grid-template-columns:1fr}
+  .contact-grid-inner div{border-bottom:1px solid var(--line)}
+  .contact-grid-inner div:last-child{border-bottom:0}
   .hero-grid{gap:36px}.section-head{display:block}.section-intro{margin-top:16px}
   .dropdown{right:-10px;min-width:220px}.about-layout,.contact-grid{gap:34px}
   .latest-row{grid-template-columns:1fr;gap:6px}
@@ -283,7 +304,8 @@ a:focus-visible,button:focus-visible,.collab-tile:focus-visible,.modal-close:foc
   .container{width:min(100% - 28px,1120px)}
   .logo{font-size:.92rem}.nav-links .nav-home{display:none}
   .nav-button{padding:7px 6px;font-size:.6rem;letter-spacing:.08em}
-  .hero{padding-top:114px}
+  .hero-dark{padding-top:114px}
+  .hero-crack svg{width:96%;opacity:.4;right:-10%}
   h1{font-size:clamp(3.6rem,17vw,5.4rem)}
   .card summary{padding:18px}
   .modal{padding:24px}
